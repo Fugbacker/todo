@@ -7,3 +7,10 @@
     Установить все зависимости командой: "yarn install"
 
 Приложение можно визуально посмотреть здесь - https://spacex-dkplwjbe8-fugbacker.vercel.app/
+
+
+Основной функционал
+[alt text](https://github.com/Fugbacker/todo/blob/main/demo/1.png)
+
+Дополнительный функционал для админа
+[alt text](https://github.com/Fugbacker/todo/blob/main/demo/2.png)

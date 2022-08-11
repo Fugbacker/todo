@@ -88,7 +88,6 @@ export default function Home({todos}) {
 
 export async function getServerSideProps(context) {
   const pagesDirectory = path.resolve(process.cwd(), 'pages')
-  console.log('AAAAAA', pagesDirectory)
   const file = await fs.readFile(`${pagesDirectory}/todo/todoList.json`, 'utf-8')
   return {
     props: {todos: JSON.stringify(file)}

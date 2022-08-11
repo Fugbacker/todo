@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react'
 
-const Input = ({setText, text, placeholder, validation, setValidation, error, setError, validForm, setValidForm}) => {
+const Input = ({setText, text, placeholder, validation, setValidation, error, setError, setValidForm}) => {
 
   useEffect(() => {
     if (error.email || error.name || error.todo) {

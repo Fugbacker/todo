@@ -26,9 +26,9 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
 
   return (
     <div className="inputContainer">
-      <Input setText={setText} text={text} placeholder={'name'} validation={validation} setValidation={setValidation} error={error} setError={setError} validForm={validForm} setValidForm={setValidForm}/>
-      <Input setText={setText} text={text} placeholder={'email'} validation={validation} setValidation={setValidation} error={error} setError={setError} validForm={validForm} setValidForm={setValidForm}/>
-      <Input setText={setText} text={text} placeholder={'todo'} validation={validation} setValidation={setValidation} error={error} setError={setError} validForm={validForm} setValidForm={setValidForm}/>
+      <Input setText={setText} text={text} placeholder={'name'} validation={validation} setValidation={setValidation} error={error} setError={setError} setValidForm={setValidForm}/>
+      <Input setText={setText} text={text} placeholder={'email'} validation={validation} setValidation={setValidation} error={error} setError={setError} setValidForm={setValidForm}/>
+      <Input setText={setText} text={text} placeholder={'todo'} validation={validation} setValidation={setValidation} error={error} setError={setError} setValidForm={setValidForm}/>
       <button
         className="addButton"
         disabled={!validForm}

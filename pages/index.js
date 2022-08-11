@@ -8,6 +8,7 @@ import  { signOut, useSession } from 'next-auth/react'
 import SortButton from '../components/sortButton'
 import Pagination from '../components/pagination'
 import * as fs from 'fs/promises'
+const path = require('path');
 
 
 
@@ -86,7 +87,9 @@ export default function Home({todos}) {
 }
 
 export async function getServerSideProps(context) {
-  const file = await fs.readFile('todo/todoList.json', 'utf-8')
+  const pagesDirectory = path.resolve(process.cwd(), 'pages')
+  console.log('AAAAAA', pagesDirectory)
+  const file = await fs.readFile(`${pagesDirectory}/todo/todoList.json`, 'utf-8')
   return {
     props: {todos: JSON.stringify(file)}
   }

@@ -1,0 +1,310 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  background: white;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.optionsPanel, .paginaton {
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #71bb71;
+  margin: 40px 0;
+  border-radius: 10px;
+  transition: all .3s ease;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+}
+
+.paginaton{
+  justify-content: left !important;
+}
+
+.todoList {
+  width: 1000px;
+}
+
+.allTodo {
+  min-height: 220px;
+}
+
+.todoContainer {
+  justify-content: space-between;
+  padding: 15px 30px;
+  background-color: #f2f2f2;
+  margin: 20px 0;
+  border-radius: 10px;
+  transition: all .3s ease;
+}
+
+.todoContainer:hover {
+  background: #d9d9d9;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 6px 18px;
+  border-radius: 10px;
+}
+
+.todoItem {
+  display: grid;
+  grid-template-columns: 150px 30% 38% 10%;
+  width: 100%;
+  align-items: center;
+}
+
+.loginButton {
+  color: white;
+  transition: all .3s ease;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  height: 37px;
+  background: #71bb71;
+  width: 150px;
+  cursor: pointer;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+}
+
+.loginButton:hover {
+  color: green;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  color: green;
+  margin-bottom: 50px;
+}
+
+.checkIcon {
+  color: green;
+}
+
+.addButton {
+  color: white;
+  transition: all .3s ease;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  height: 37px;
+  background: #71bb71;
+  width: 150px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.addButton:hover {
+  color: green;
+}
+
+.checkBox {
+  border: 2px solid green;
+  border-radius: 8px;
+  height: 30px;
+  width: 30px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trash {
+  width: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.trashIcon {
+  color: #afa2a2;
+  height: 25px;
+  width: 25px;
+  transition: all .3s ease;
+}
+
+.trashIcon:hover {
+  color: red;
+}
+
+.statusInProgress {
+  color: red;
+}
+
+.statusIsComplete {
+  color: green;
+}
+
+.correct {
+  width: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.status {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.isChanged {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.editIcon {
+  color: #afa2a2;
+  height: 25px;
+  width: 25px;
+  transition: all .3s ease;
+}
+
+.editIcon:hover {
+  color: green;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #f2f2f2;
+  margin: 0 auto;
+  border-radius: 10px;
+  transition: all .3s ease;
+  width: 500px;
+}
+
+.troughText {
+  text-decoration: line-through;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.mail {
+  font-weight: 600;
+  color:#7b7b7b;
+}
+
+.todoText {
+  font-weight: 700;
+  color: #afa2a2
+}
+
+.sortButton {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.paginationButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  transition: all .3s ease;
+  margin: 0 5px;
+}
+
+.errorAlert {
+  color: red;
+  font-weight: 700;
+}
+.done {
+  color: green;
+  font-weight: 700;
+}
+
+.adminForm {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 3px solid #71bb71;
+  margin-top: 30px;
+}
+
+.adminForm input {
+  width: 70%;
+}
+
+.completeTask, .noCompleteTask {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+
+.submit {
+  color: white;
+  transition: all .3s ease;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 8px;
+  height: 37px;
+  background: #71bb71;
+  width: 70px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit:hover {
+  color: green;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,10 @@
+@media (max-width: 1000px) {
+  .main {
+    width: 100%;
+    margin: 0 15px;
+  }
+
+  .todoList {
+    width:100%;
+  }
+}

@@ -10,7 +10,7 @@
 
 
 Основной функционал
-(https://github.com/Fugbacker/todo/blob/main/demo/1.png)
+![alt text](https://github.com/Fugbacker/todo/blob/main/demo/1.png?raw=true)
 
 Дополнительный функционал для админа
-(https://github.com/Fugbacker/todo/blob/main/demo/2.png)
+![alt text](https://github.com/Fugbacker/todo/blob/main/demo/2.png?raw=true)

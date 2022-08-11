@@ -86,7 +86,7 @@ export default function Home({todos}) {
 }
 
 export async function getServerSideProps(context) {
-  const file = await fs.readFile('https://todo-ruby-three.vercel.app/todo/todoList.json', 'utf-8')
+  const file = await fs.readFile('todo/todoList.json', 'utf-8')
   return {
     props: {todos: JSON.stringify(file)}
   }

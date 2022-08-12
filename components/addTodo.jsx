@@ -35,7 +35,7 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
         onClick={() => {
           setTodo([
             {
-            id: new Date(),
+            id: Math.random(),
             name: text.name,
             email: text.email,
             todo: text.todo,

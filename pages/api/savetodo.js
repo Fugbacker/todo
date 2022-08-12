@@ -1,10 +1,23 @@
-import * as fs from 'fs/promises'
-const path = require('path');
+import { MongoClient } from 'mongodb'
+
+const client = new MongoClient('mongodb+srv://alabama:alabama@todo.vioj8rc.mongodb.net/test', { useUnifiedTopology: true })
 
 export default async function saveTodo(req, res) {
-  const todoList = req.query.text
-  const pagesDirectory = path.resolve(process.cwd(), 'pages')
-  await fs.writeFile(`${pagesDirectory}/todo/todoList.json`, todoList)
+  const todoList = JSON.parse(req.query.text)
+  console.log('TODOLIST', todoList)
+  await client.connect()
+  const db = client.db('todo')
+  const collection = db.collection('todo')
+  await collection.deleteMany({})
 
-  res.status(200).json({ name: 'John Doe' })
+  if (todoList.length !==0) {
+    todoList.map(async (it) => {
+      await collection.insertOne(it)
+    })
+   return res.status(200).json({ name: 'John Doe' })
+  }
+
+  await collection.deleteMany({})
+
+  return res.status(200).json({ name: 'John Doe' })
 }

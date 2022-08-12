@@ -7,15 +7,16 @@ import TodoItem from '../components/todoItem'
 import  { signOut, useSession } from 'next-auth/react'
 import SortButton from '../components/sortButton'
 import Pagination from '../components/pagination'
-import * as fs from 'fs/promises'
-const path = require('path');
+import { MongoClient } from 'mongodb'
+
+const client = new MongoClient('mongodb+srv://alabama:alabama@todo.vioj8rc.mongodb.net/test', { useUnifiedTopology: true })
 
 
 
 export default function Home({todos}) {
   const router = useRouter()
   const { data: session } = useSession()
-  const todosList = JSON?.parse(JSON?.parse(todos)) || []
+  const todosList = JSON?.parse(todos) || []
   const [todo, setTodo] = useState(todosList)
   const [sorter, setSorter] = useState(-1)
   const [i, setI] = useState(0)
@@ -87,9 +88,11 @@ export default function Home({todos}) {
 }
 
 export async function getServerSideProps(context) {
-  const pagesDirectory = path.resolve(process.cwd(), 'pages')
-  const file = await fs.readFile(`${pagesDirectory}/todo/todoList.json`, 'utf-8')
+  await client.connect()
+  const db = client.db('todo')
+  const collection = db.collection('todo')
+  const todoList = await collection.find().toArray()
   return {
-    props: {todos: JSON.stringify(file)}
+    props: {todos: JSON.stringify(todoList) || null}
   }
 }

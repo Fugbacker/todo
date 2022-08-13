@@ -72,7 +72,7 @@ export default function Home({todos}) {
             {todo.slice(i * 3,  (i + 1)  * 3).map((it) => {
             return (
               <TodoItem
-                key={it._id}
+                key={Math.random()}
                 todo={it}
                 setTodo={setTodo}
                 todoList={todo}
@@ -90,7 +90,7 @@ export default function Home({todos}) {
 export async function getServerSideProps(context) {
   await client.connect()
   const db = client.db('todo')
-  const collection = db.collection('todo')
+  const collection = db.collection('todoList')
   const todoList = await collection.find().toArray()
   return {
     props: {todos: JSON.stringify(todoList) || null}

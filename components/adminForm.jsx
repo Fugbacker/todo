@@ -2,11 +2,20 @@ import React, { useState } from 'react'
 import  {useSession } from 'next-auth/react'
 import { AiOutlineCheckCircle } from 'react-icons/ai'
 import { BiTimeFive } from 'react-icons/bi'
+import axios from 'axios'
 
-const AdminForm = ({ textTodo, setTodo, todoList, id, isCorrect, setIsCorrect}) => {
-  const [text, setText] = useState(textTodo)
+const AdminForm = ({ todo, setTodo, todoList, id, isCorrect, setIsCorrect}) => {
+  const [text, setText] = useState(todo.todo)
   const [checked, setChecked] = useState(true)
   const { data: session } = useSession()
+  const correctedTodo = {
+    id: todo.id,
+    name: todo.name,
+    email: todo.email,
+    todo: text,
+    status: checked,
+    admin: true,
+  }
 
   return (
     <>
@@ -34,6 +43,7 @@ const AdminForm = ({ textTodo, setTodo, todoList, id, isCorrect, setIsCorrect}) 
           const todoIndex = todoList.findIndex((it) => it.id === id)
           setTodo([...todoList], todoList[todoIndex].todo = text, todoList[todoIndex].status = checked, todoList[todoIndex].admin = true)
           setIsCorrect(!isCorrect)
+          axios.get(`/api/correcttodo?text=${JSON.stringify(correctedTodo)}`)
         }}
       >
         submit

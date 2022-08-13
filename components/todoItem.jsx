@@ -41,7 +41,7 @@ const TodoItem = ({todo, setTodo, todoList}) => {
                     onClick={() => {
                       const todoToDelete = [...todoList].filter(it => it._id === todo._id)[0]
                       setTodo([...todoList].filter(it => it._id !== todo._id))
-                      const id = todoToDelete._id
+                      const id = todoToDelete.id
                       axios.get(`/api/removetodo?text=${id}`)
                     }}
                   >
@@ -53,7 +53,7 @@ const TodoItem = ({todo, setTodo, todoList}) => {
             {todo.admin  && <div className="isChanged"><MdPublishedWithChanges className="statusIsComplete" size={25}/></div>}
         </div>
       </div>
-      {isCorrect && <AdminForm textTodo={todo.todo} setTodo={setTodo} id={todo.id} todoList={todoList} isCorrect={isCorrect} setIsCorrect={setIsCorrect}/>}
+      {isCorrect && <AdminForm todo={todo} setTodo={setTodo} id={todo.id} todoList={todoList} isCorrect={isCorrect} setIsCorrect={setIsCorrect}/>}
     </div>
   )
 }

@@ -8,3 +8,52 @@
     width:100%;
   }
 }
+
+
+@media (max-width: 700px) {
+  .todoItem {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+  }
+
+  .todoContainer {
+    margin: 20px 15px;
+  }
+
+  .optionsPanel, .paginaton {
+    margin: 40px 15px;
+  }
+
+  .status {
+    justify-content: flex-start;
+  }
+
+  .name, .mail, .todoText{
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .inputContainer {
+    width: 100%;
+    margin-right: 15px;
+  }
+
+  .loginButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: inherit;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    margin-bottom: 0;
+  }
+
+  .sortButton {
+    width: 50px;
+  }
+}

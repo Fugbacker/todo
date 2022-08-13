@@ -25,6 +25,8 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
     }, 2000)
   }, [done])
 
+  const id = Math.random()
+
   const list = JSON.stringify(text)
 
   return (
@@ -38,7 +40,7 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
         onClick={() => {
           setTodo([...todo,
             {
-              id: Math.random(),
+              id: id,
               name: text.name,
               email: text.email,
               todo: text.todo,
@@ -52,7 +54,7 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
           })
           setDone(true)
           setValidForm(false)
-          axios.get(`/api/savetodo?text=${list}`)
+          axios.get(`/api/savetodo?text=${list}&id=${id}`)
         }}
       >
         add

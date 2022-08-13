@@ -1,7 +1,6 @@
 import Head from 'next/head'
-import axios from 'axios'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import AddTodo from '../components/addTodo'
 import TodoItem from '../components/todoItem'
 import  { signOut, useSession } from 'next-auth/react'
@@ -9,8 +8,7 @@ import SortButton from '../components/sortButton'
 import Pagination from '../components/pagination'
 import { MongoClient } from 'mongodb'
 
-const client = new MongoClient('mongodb+srv://alabama:alabama@todo.vioj8rc.mongodb.net/test', { useUnifiedTopology: true })
-
+const client = new MongoClient(process.env.MONGO_URL, { useUnifiedTopology: true })
 
 
 export default function Home({todos}) {
@@ -27,11 +25,6 @@ export default function Home({todos}) {
     status: false,
     admin: false,
   })
-
-  // useEffect(() => {
-  //   const list = JSON.stringify(todo)
-  //   axios.get(`/api/savetodo?text=${list}`)
-  // }, [todo])
 
   return (
     <div className="container">
@@ -91,7 +84,7 @@ export default function Home({todos}) {
 export async function getServerSideProps(context) {
   await client.connect()
   const db = client.db('todo')
-  const collection = db.collection('todo')
+  const collection = db.collection('todoItems')
   const todoList = await collection.find().toArray()
   return {
     props: {todos: JSON.stringify(todoList) || null}

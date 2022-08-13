@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import AdminForm from './adminForm'
+import axios from 'axios'
 import  {useSession } from 'next-auth/react'
 import { BiTimeFive } from 'react-icons/bi'
 import { BsTrash } from 'react-icons/bs'
@@ -38,7 +39,10 @@ const TodoItem = ({todo, setTodo, todoList}) => {
                   </div>
                   <div className="trash"
                     onClick={() => {
-                      setTodo([...todoList].filter(it => it.id !== todo.id))
+                      const todoToDelete = [...todoList].filter(it => it._id === todo._id)[0]
+                      setTodo([...todoList].filter(it => it._id !== todo._id))
+                      const id = todoToDelete._id
+                      axios.get(`/api/removetodo?text=${id}`)
                     }}
                   >
                     <BsTrash className="trashIcon" size={20}/>

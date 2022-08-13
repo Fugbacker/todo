@@ -24,13 +24,14 @@ export default function Home({todos}) {
     name: '',
     email: '',
     todo: '',
+    status: false,
     admin: false,
   })
 
-  useEffect(() => {
-    const list = JSON.stringify(todo)
-    axios.get(`/api/savetodo?text=${list}`)
-  }, [todo])
+  // useEffect(() => {
+  //   const list = JSON.stringify(todo)
+  //   axios.get(`/api/savetodo?text=${list}`)
+  // }, [todo])
 
   return (
     <div className="container">
@@ -90,7 +91,7 @@ export default function Home({todos}) {
 export async function getServerSideProps(context) {
   await client.connect()
   const db = client.db('todo')
-  const collection = db.collection('todoList')
+  const collection = db.collection('todo')
   const todoList = await collection.find().toArray()
   return {
     props: {todos: JSON.stringify(todoList) || null}

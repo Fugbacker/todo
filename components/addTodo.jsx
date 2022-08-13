@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Input from './input'
+import axios from 'axios'
 import { BsPlusCircle } from 'react-icons/bs'
 
 const AddTodo = ({ todo, setTodo, text, setText }) => {
@@ -24,6 +25,8 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
     }, 2000)
   }, [done])
 
+  const list = JSON.stringify(text)
+
   return (
     <div className="inputContainer">
       <Input setText={setText} text={text} placeholder={'name'} validation={validation} setValidation={setValidation} error={error} setError={setError} setValidForm={setValidForm}/>
@@ -39,7 +42,7 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
               name: text.name,
               email: text.email,
               todo: text.todo,
-              status: false
+              status: false,
             }
           ])
           setText({
@@ -49,6 +52,7 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
           })
           setDone(true)
           setValidForm(false)
+          axios.get(`/api/savetodo?text=${list}`)
         }}
       >
         add

@@ -27,23 +27,25 @@ const TodoItem = ({todo, setTodo, todoList}) => {
           )}
             {session &&
               (
-                <div
-                  className="correct"
-                  onClick={() => {
-                    setIsCorrect(!isCorrect)
-                  }}
-                >
-                  <AiTwotoneEdit className="editIcon" size={20}/>
-                </div>
+                <>
+                  <div
+                    className="correct"
+                    onClick={() => {
+                      setIsCorrect(!isCorrect)
+                    }}
+                  >
+                    <AiTwotoneEdit className="editIcon" size={20}/>
+                  </div>
+                  <div className="trash"
+                    onClick={() => {
+                      setTodo([...todoList].filter(it => it.id !== todo.id))
+                    }}
+                  >
+                    <BsTrash className="trashIcon" size={20}/>
+                  </div>
+                </>
               )
             }
-            <div className="trash"
-              onClick={() => {
-                setTodo([...todoList].filter(it => it.id !== todo.id))
-              }}
-            >
-              <BsTrash className="trashIcon" size={20}/>
-            </div>
             {todo.admin  && <div className="isChanged"><MdPublishedWithChanges className="statusIsComplete" size={25}/></div>}
         </div>
       </div>

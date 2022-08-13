@@ -4,13 +4,12 @@ const client = new MongoClient('mongodb+srv://alabama:alabama@todo.vioj8rc.mongo
 
 export default async function saveTodo(req, res) {
   const todoList = JSON.parse(req.query.text)
-
   await client.connect()
   const db = client.db('todo')
   const collection = db.collection('todoList')
-  await collection.deleteMany({})
-
-  if (todoList.length !==0) {
+  const oldTodoList = JSON.stringify(await collection.find().toArray())
+  if (req.query.text !== oldTodoList && todoList.length !==0) {
+    await collection.deleteMany({})
     todoList.map(async (it) => {
       await collection.insertOne(it)
     })

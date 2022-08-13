@@ -33,14 +33,15 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
         className="addButton"
         disabled={!validForm}
         onClick={() => {
-          setTodo([...todo],
+          setTodo([...todo,
             {
               id: Math.random(),
               name: text.name,
               email: text.email,
               todo: text.todo,
               status: false
-            })
+            }
+          ])
           setText({
             name: '',
             email: '',

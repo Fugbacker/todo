@@ -72,7 +72,7 @@ export default function Home({todos}) {
             {todo.slice(i * 3,  (i + 1)  * 3).map((it) => {
             return (
               <TodoItem
-                key={it.id}
+                key={it._id}
                 todo={it}
                 setTodo={setTodo}
                 todoList={todo}

@@ -4,6 +4,7 @@ const client = new MongoClient('mongodb+srv://alabama:alabama@todo.vioj8rc.mongo
 
 export default async function saveTodo(req, res) {
   const todoList = JSON.parse(req.query.text)
+  console.log('todoList', todoList)
   await client.connect()
   const db = client.db('todo')
   const collection = db.collection('todo')

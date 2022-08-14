@@ -4,7 +4,6 @@ const client = new MongoClient(process.env.MONGO_URL, { useUnifiedTopology: true
 
 export default async function saveTodo(req, res) {
   const todo = JSON.parse(req.query.text)
-  console.log('ADDTODO', todo)
   const id = req.query.id
   await client.connect()
   const db = client.db('todo')

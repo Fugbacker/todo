@@ -6,7 +6,7 @@
     Клонировать репозиторий : "git@github.com:Fugbacker/todo.git"
     Установить все зависимости командой: "yarn install"
 
-Приложение можно визуально посмотреть здесь - https://spacex-dkplwjbe8-fugbacker.vercel.app/
+Приложение можно визуально посмотреть здесь - https://todo-fugbacker.vercel.app/
 
 
 Основной функционал

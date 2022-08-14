@@ -45,6 +45,7 @@ const AddTodo = ({ todo, setTodo, text, setText }) => {
               email: text.email,
               todo: text.todo,
               status: false,
+              admin: false,
             }
           ])
           setText({

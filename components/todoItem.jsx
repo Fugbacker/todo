@@ -50,7 +50,11 @@ const TodoItem = ({todo, setTodo, todoList}) => {
                 </>
               )
             }
-            {todo.admin  && <div className="isChanged"><MdPublishedWithChanges className="statusIsComplete" size={25}/></div>}
+            {todo.admin  ? (
+              <div className="isChanged"><MdPublishedWithChanges className="statusIsComplete" size={25}/></div>) : (
+              <div className="empty"></div>
+              )
+            }
         </div>
       </div>
       {isCorrect && <AdminForm todo={todo} setTodo={setTodo} id={todo.id} todoList={todoList} isCorrect={isCorrect} setIsCorrect={setIsCorrect}/>}

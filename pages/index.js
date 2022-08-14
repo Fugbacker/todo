@@ -16,6 +16,7 @@ export default function Home({todos}) {
   const { data: session } = useSession()
   const todosList = JSON?.parse(todos) || []
   const [todo, setTodo] = useState(todosList)
+  console.log('TODO', todo)
   const [sorter, setSorter] = useState(-1)
   const [i, setI] = useState(0)
   const [text, setText] = useState({
